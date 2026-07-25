@@ -29,11 +29,15 @@ body {
   flex: 1;
 }
 
+.container-wide {
+  max-width: 900px;
+}
+
 /* Page layout with left sidebar */
 
 .page {
   display: flex;
-  max-width: 960px;
+  max-width: 1100px;
   margin: 0 auto;
 }
 
@@ -197,6 +201,22 @@ section h2 {
   color: var(--color-accent);
 }
 
+/* San Francisco gallery */
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.gallery-item {
+  min-width: 0;
+}
+
+.gallery-item iframe {
+  max-width: 100% !important;
+}
+
 /* Post page */
 
 .post-header {
@@ -241,6 +261,26 @@ footer p {
 
   .container {
     padding-top: 32px;
+  }
+
+  .gallery-grid {
+    display: flex;
+    grid-template-columns: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 16px;
+    padding-bottom: 8px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .gallery-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  .gallery-item {
+    flex: 0 0 82%;
+    scroll-snap-align: start;
   }
 }
 
